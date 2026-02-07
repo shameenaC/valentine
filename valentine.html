@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Valentine 💕</title>
+
+<style>
+body {
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to bottom, #ff9a9e, #fad0c4);
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+}
+
+.card {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    width: 320px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    position: relative;
+}
+
+h2 {
+    color: #e91e63;
+}
+
+button {
+    padding: 10px 22px;
+    border: none;
+    border-radius: 20px;
+    font-size: 16px;
+    margin: 10px;
+    cursor: pointer;
+}
+
+#yes {
+    background: #e91e63;
+    color: white;
+}
+
+/* NO button can move freely */
+#no {
+    background: #ddd;
+    position: fixed;
+}
+
+/* ❤️ Flying hearts */
+.heart {
+    position: fixed;
+    bottom: 0;
+    font-size: 24px;
+    animation: fly 2.5s ease-out forwards;
+}
+
+@keyframes fly {
+    from {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+    to {
+        transform: translateY(-600px) scale(1.5);
+        opacity: 0;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+    ❤️🎀
+    <h2>Hey Handsome!</h2>
+    <p>Will you be my Valentine this year? 💕</p>
+
+    <button id="yes" onclick="yesClick()">Yes 💖</button>
+    <button id="no" onmouseover="moveNo()">No 😜</button>
+</div>
+
+<script>
+function moveNo() {
+    const noBtn = document.getElementById("no");
+
+    const maxX = window.innerWidth - noBtn.offsetWidth;
+    const maxY = window.innerHeight - noBtn.offsetHeight;
+
+    const x = Math.random() * maxX;
+    const y = Math.random() * maxY;
+
+    noBtn.style.left = x + "px";
+    noBtn.style.top = y + "px";
+}
+
+function yesClick() {
+    for (let i = 0; i < 25; i++) {
+        const heart = document.createElement("div");
+        heart.className = "heart";
+        heart.innerText = "💖";
+
+        heart.style.left = Math.random() * window.innerWidth + "px";
+        heart.style.animationDuration =
+            (Math.random() * 1.5 + 1.5) + "s";
+
+        document.body.appendChild(heart);
+
+        setTimeout(() => heart.remove(), 3000);
+    }
+}
+</script>
+
+</body>
+</html>
