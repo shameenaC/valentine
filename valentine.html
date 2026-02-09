@@ -68,7 +68,12 @@ button {
     background: #e91e63;
     color: white;
 }
-
+.no-btn {
+    position: absolute;
+    left: 120px;
+    top: 0;
+    transition: 0.3s ease;
+}
 /* NO button can move freely */
 #no {
     background: #ddd;
@@ -98,6 +103,14 @@ button {
 </head>
 
 <body>
+<div class="card" id="questionCard">
+    <h2>💖💐</h2>
+    <h1>Hey Handsome!</h1>
+    <p>Will you be my Valentine this year? 💕</p>
+    <button class="yes-btn" onclick="showLove()">Yes 💖</button>
+    <button class="no-btn" onmouseover="moveNo()">No 😜</button>
+
+</div>
 
 
 <div class="card hidden" id="loveCard">
