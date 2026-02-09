@@ -68,6 +68,8 @@ button {
     background: #e91e63;
     color: white;
 }
+
+
 .no-btn {
     position: absolute;
     left: 120px;
@@ -108,7 +110,6 @@ button {
     <h1>Hey Handsome!</h1>
     <p>Will you be my Valentine this year? 💕</p>
     <button class="yes-btn" onclick="showLove()">Yes 💖</button>
-    <button class="no-btn" onmouseover="moveNo()">No 😜</button>
 
 </div>
 
@@ -125,17 +126,18 @@ button {
 
 <script>
 function moveNo() {
-    const noBtn = document.getElementById("no");
+    const btn = document.querySelector(".no-btn");
 
-    const maxX = window.innerWidth - noBtn.offsetWidth;
-    const maxY = window.innerHeight - noBtn.offsetHeight;
+    const maxX = box.clientWidth - btn.offsetWidth;
+    const maxY = box.clientHeight - btn.offsetHeight;
 
     const x = Math.random() * maxX;
     const y = Math.random() * maxY;
 
-    noBtn.style.left = x + "px";
-    noBtn.style.top = y + "px";
+    btn.style.left = x + "px";
+    btn.style.top = y + "px";
 }
+
 
 
 function yesClick() {
